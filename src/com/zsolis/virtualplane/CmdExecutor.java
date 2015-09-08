@@ -9,12 +9,12 @@ public class CmdExecutor {
 	public static void main (String arg[]) throws IOException, ClassNotFoundException {
 		InfoReceiver infoReceiver = new InfoReceiver(8000);
 		while (true) {
-			System.out.println("µÈ´ıÁ¬½Ó...");
+			System.out.println("ç­‰å¾…è¿æ¥...");
 			List<Position> receivedList = infoReceiver.receivePath();
 			String phoneAddress = infoReceiver.getClientAddress();
 			if (receivedList != null && receivedList.size() != 0) {
 				for (Position position : receivedList) {
-					System.out.printf("ºá×ø±ê%d ×İ×ø±ê%d\n", position.getxOffset(),position.getyOffset());
+					System.out.printf("æ¨ªåæ ‡%d çºµåæ ‡%d\n", position.getxOffset(),position.getyOffset());
 				}
 				InfoSender infoSender = new InfoSender(phoneAddress, 8111);
 				infoSender.sendPath(receivedList);

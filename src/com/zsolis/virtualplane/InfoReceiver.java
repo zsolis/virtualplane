@@ -7,7 +7,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.zsolis.virtualplane.common.Position;;
+import com.zsolis.virtualplane.common.Position;
 
 public class InfoReceiver {
 	private ServerSocket servSocket;
@@ -21,7 +21,7 @@ public class InfoReceiver {
 	public List<Position> receivePath() throws IOException, ClassNotFoundException {
 		Socket clientSocket = servSocket.accept();
 		clientAddress = clientSocket.getInetAddress().getHostAddress();
-		System.out.println(clientSocket + "ÒÑÁ¬½Ó");
+		System.out.println(clientSocket + "å·²è¿žæŽ¥");
 		ObjectInputStream ois = new ObjectInputStream (clientSocket.getInputStream());
 		List<Position> receivedPath = new ArrayList<Position>();
 		receivedPath = (List<Position>) ois.readObject();
@@ -38,7 +38,7 @@ public class InfoReceiver {
 		path = myReceiver.receivePath();
 		for(int i=0;i<path.size();i++) {
 			Position node=  path.get(i);
-			System.out.printf("µÚ%d¸öµãµÄºá×ø±êÊÇ%d×Ý×ø±êÊÇ%d\n",i,node.getxOffset(),node.getyOffset());
+			System.out.printf("ç¬¬%dä¸ªç‚¹çš„æ¨ªåæ ‡æ˜¯%dçºµåæ ‡æ˜¯%d\n",i,node.getxOffset(),node.getyOffset());
 		}
 	}*/
 }
